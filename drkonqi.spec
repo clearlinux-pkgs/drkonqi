@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.13.4
-Release  : 3
-URL      : https://download.kde.org/stable/plasma/5.13.4/drkonqi-5.13.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.13.4/drkonqi-5.13.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.13.4/drkonqi-5.13.4.tar.xz.sig
+Version  : 5.13.5
+Release  : 4
+URL      : https://download.kde.org/stable/plasma/5.13.5/drkonqi-5.13.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.13.5/drkonqi-5.13.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.13.5/drkonqi-5.13.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -18,10 +18,7 @@ Requires: drkonqi-license
 Requires: drkonqi-locales
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
 BuildRequires : kidletime-dev
-BuildRequires : knotifications-dev
-BuildRequires : kwallet-dev
 BuildRequires : kxmlrpcclient-dev
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
 BuildRequires : qtx11extras-dev
@@ -57,14 +54,14 @@ locales components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.13.4
+%setup -q -n drkonqi-5.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535425371
+export SOURCE_DATE_EPOCH=1536086086
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -72,7 +69,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535425371
+export SOURCE_DATE_EPOCH=1536086086
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/drkonqi
 cp COPYING %{buildroot}/usr/share/doc/drkonqi/COPYING
