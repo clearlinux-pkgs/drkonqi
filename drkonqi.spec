@@ -6,7 +6,7 @@
 #
 Name     : drkonqi
 Version  : 5.14.0
-Release  : 5
+Release  : 6
 URL      : https://download.kde.org/stable/plasma/5.14.0/drkonqi-5.14.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.0/drkonqi-5.14.0.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.0/drkonqi-5.14.0.tar.xz.sig
@@ -18,9 +18,13 @@ Requires: drkonqi-license
 Requires: drkonqi-locales
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kcrash-dev
 BuildRequires : kidletime-dev
+BuildRequires : knotifications-dev
+BuildRequires : kwallet-dev
 BuildRequires : kxmlrpcclient-dev
 BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qtx11extras-dev
 BuildRequires : zlib-dev
 
 %description
@@ -61,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539108881
+export SOURCE_DATE_EPOCH=1539114025
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -69,7 +73,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539108881
+export SOURCE_DATE_EPOCH=1539114025
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/drkonqi
 cp COPYING %{buildroot}/usr/share/doc/drkonqi/COPYING
