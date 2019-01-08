@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.14.4
-Release  : 10
-URL      : https://download.kde.org/stable/plasma/5.14.4/drkonqi-5.14.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.4/drkonqi-5.14.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.4/drkonqi-5.14.4.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 5.14.5
+Release  : 11
+URL      : https://download.kde.org/stable/plasma/5.14.5/drkonqi-5.14.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.14.5/drkonqi-5.14.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.14.5/drkonqi-5.14.5.tar.xz.sig
+Summary  : The KDE crash handler
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: drkonqi-data = %{version}-%{release}
@@ -24,10 +24,8 @@ BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
 
 %description
-How to activate the debug button for DrKonqi:
-$KDEHOME/share/config/drkonqirc:
-[DrKonqi]
-ShowDebugButton=true
+This is a unit test for the BacktraceInfo class, which is used in drkonqi
+to rate the usefulness of a backtrace.
 
 %package data
 Summary: data components for the drkonqi package.
@@ -54,22 +52,22 @@ locales components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.14.4
+%setup -q -n drkonqi-5.14.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543391479
+export SOURCE_DATE_EPOCH=1546962187
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1543391479
+export SOURCE_DATE_EPOCH=1546962187
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp COPYING %{buildroot}/usr/share/package-licenses/drkonqi/COPYING
