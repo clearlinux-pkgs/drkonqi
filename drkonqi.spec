@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.15.4
-Release  : 18
-URL      : https://download.kde.org/stable/plasma/5.15.4/drkonqi-5.15.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.15.4/drkonqi-5.15.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.15.4/drkonqi-5.15.4.tar.xz.sig
+Version  : 5.15.5
+Release  : 19
+URL      : https://download.kde.org/stable/plasma/5.15.5/drkonqi-5.15.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.5/drkonqi-5.15.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.5/drkonqi-5.15.5.tar.xz.sig
 Summary  : The KDE crash handler
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -18,13 +18,9 @@ Requires: drkonqi-license = %{version}-%{release}
 Requires: drkonqi-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
 BuildRequires : kidletime-dev
-BuildRequires : knotifications-dev
-BuildRequires : kwallet-dev
 BuildRequires : kxmlrpcclient-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtx11extras-dev
 BuildRequires : zlib-dev
 
 %description
@@ -58,14 +54,14 @@ locales components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.15.4
+%setup -q -n drkonqi-5.15.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556997715
+export SOURCE_DATE_EPOCH=1557238779
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -80,7 +76,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1556997715
+export SOURCE_DATE_EPOCH=1557238779
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp COPYING %{buildroot}/usr/share/package-licenses/drkonqi/COPYING
