@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.16.0
-Release  : 20
-URL      : https://download.kde.org/stable/plasma/5.16.0/drkonqi-5.16.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.0/drkonqi-5.16.0.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.16.0/drkonqi-5.16.0.tar.xz.sig
+Version  : 5.16.1
+Release  : 21
+URL      : https://download.kde.org/stable/plasma/5.16.1/drkonqi-5.16.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.1/drkonqi-5.16.1.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.1/drkonqi-5.16.1.tar.xz.sig
 Summary  : The KDE crash handler
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -54,16 +54,17 @@ locales components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.16.0
+%setup -q -n drkonqi-5.16.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1560264310
+export SOURCE_DATE_EPOCH=1560864305
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -76,7 +77,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1560264310
+export SOURCE_DATE_EPOCH=1560864305
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp COPYING %{buildroot}/usr/share/package-licenses/drkonqi/COPYING
