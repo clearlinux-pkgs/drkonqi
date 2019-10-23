@@ -1,7 +1,8 @@
-5.17.0
+5.17.1
 kcrash-dev
 kidletime-dev
 knotifications-dev
 kwallet-dev
 kxmlrpcclient-dev
 qtx11extras-dev
+util-linux
