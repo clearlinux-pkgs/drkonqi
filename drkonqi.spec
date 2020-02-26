@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.18.1
-Release  : 33
-URL      : https://download.kde.org/stable/plasma/5.18.1/drkonqi-5.18.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.1/drkonqi-5.18.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.1/drkonqi-5.18.1.tar.xz.sig
+Version  : 5.18.2
+Release  : 34
+URL      : https://download.kde.org/stable/plasma/5.18.2/drkonqi-5.18.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.2/drkonqi-5.18.2.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.2/drkonqi-5.18.2.tar.xz.sig
 Summary  : The KDE crash handler
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -53,15 +53,15 @@ locales components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.18.1
-cd %{_builddir}/drkonqi-5.18.1
+%setup -q -n drkonqi-5.18.2
+cd %{_builddir}/drkonqi-5.18.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582076376
+export SOURCE_DATE_EPOCH=1582676807
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -78,11 +78,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1582076376
+export SOURCE_DATE_EPOCH=1582676807
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
-cp %{_builddir}/drkonqi-5.18.1/COPYING %{buildroot}/usr/share/package-licenses/drkonqi/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/drkonqi-5.18.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/drkonqi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/drkonqi-5.18.2/COPYING %{buildroot}/usr/share/package-licenses/drkonqi/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/drkonqi-5.18.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/drkonqi/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
