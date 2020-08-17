@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.19.2
-Release  : 41
-URL      : https://download.kde.org/stable/plasma/5.19.2/drkonqi-5.19.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.2/drkonqi-5.19.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.2/drkonqi-5.19.2.tar.xz.sig
+Version  : 5.19.4
+Release  : 42
+URL      : https://download.kde.org/stable/plasma/5.19.4/drkonqi-5.19.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.4/drkonqi-5.19.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.4/drkonqi-5.19.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -58,15 +58,15 @@ locales components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.19.2
-cd %{_builddir}/drkonqi-5.19.2
+%setup -q -n drkonqi-5.19.4
+cd %{_builddir}/drkonqi-5.19.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592934190
+export SOURCE_DATE_EPOCH=1597632173
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -78,15 +78,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592934190
+export SOURCE_DATE_EPOCH=1597632173
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
-cp %{_builddir}/drkonqi-5.19.2/COPYING %{buildroot}/usr/share/package-licenses/drkonqi/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
-cp %{_builddir}/drkonqi-5.19.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/drkonqi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/drkonqi-5.19.4/COPYING %{buildroot}/usr/share/package-licenses/drkonqi/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/drkonqi-5.19.4/COPYING.LIB %{buildroot}/usr/share/package-licenses/drkonqi/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
