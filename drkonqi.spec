@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.25.5
-Release  : 71
-URL      : https://download.kde.org/stable/plasma/5.25.5/drkonqi-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/drkonqi-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/drkonqi-5.25.5.tar.xz.sig
+Version  : 5.26.3
+Release  : 72
+URL      : https://download.kde.org/stable/plasma/5.26.3/drkonqi-5.26.3.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.3/drkonqi-5.26.3.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.3/drkonqi-5.26.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-2-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
+License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
 Requires: drkonqi-bin = %{version}-%{release}
 Requires: drkonqi-data = %{version}-%{release}
 Requires: drkonqi-lib = %{version}-%{release}
@@ -22,8 +22,8 @@ Requires: drkonqi-services = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
-BuildRequires : ki18n-dev
 BuildRequires : kidletime-dev
+BuildRequires : kuserfeedback-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(libsystemd)
 BuildRequires : syntax-highlighting-dev
@@ -95,15 +95,15 @@ services components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.25.5
-cd %{_builddir}/drkonqi-5.25.5
+%setup -q -n drkonqi-5.26.3
+cd %{_builddir}/drkonqi-5.26.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662507723
+export SOURCE_DATE_EPOCH=1668124158
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -119,24 +119,26 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662507723
+export SOURCE_DATE_EPOCH=1668124158
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
-cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/drkonqi/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/2a638514c87c4923c0570c55822620fad56f2a33 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/drkonqi/e712eadfab0d2357c0f50f599ef35ee0d87534cb || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/6091db0aead0d90182b93d3c0d09ba93d188f907 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/3c3d7573e137d48253731c975ecf90d74cfa9efe || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/757b86330df80f81143d5916b3e92b4bcb1b1890 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/7d9831e05094ce723947d729c2a46a09d6e90275 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/7d9831e05094ce723947d729c2a46a09d6e90275 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/e458941548e0864907e654fa2e192844ae90fc32 || :
-cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/e458941548e0864907e654fa2e192844ae90fc32 || :
-cp %{_builddir}/drkonqi-%{version}/logo.png.license %{buildroot}/usr/share/package-licenses/drkonqi/0185dcaed81bd3d62abe10263cfa6fe72f69a719 || :
-cp %{_builddir}/drkonqi-%{version}/src/tests/data/linux-procfs-maps-with-deleted-exe.license %{buildroot}/usr/share/package-licenses/drkonqi/864bc0eb28c73bd997ac19ff91935ab771846615 || :
-cp %{_builddir}/drkonqi-%{version}/src/tests/data/linux-procfs-maps-with-missing-files.license %{buildroot}/usr/share/package-licenses/drkonqi/864bc0eb28c73bd997ac19ff91935ab771846615 || :
-cp %{_builddir}/drkonqi-%{version}/src/tests/data/linux-procfs-maps.so.license %{buildroot}/usr/share/package-licenses/drkonqi/864bc0eb28c73bd997ac19ff91935ab771846615 || :
+cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/3630f1ffcec0e075bf446b88c7b507b1287b571d
+cp %{_builddir}/drkonqi-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/drkonqi/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/drkonqi-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/drkonqi-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/drkonqi/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/drkonqi-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/drkonqi/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LGPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/drkonqi/0b71159e19bef95069e18d17296291916e89b5cd
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/drkonqi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/drkonqi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/drkonqi-%{version}/logo.png.license %{buildroot}/usr/share/package-licenses/drkonqi/0185dcaed81bd3d62abe10263cfa6fe72f69a719
+cp %{_builddir}/drkonqi-%{version}/src/tests/data/linux-procfs-maps-with-deleted-exe.license %{buildroot}/usr/share/package-licenses/drkonqi/864bc0eb28c73bd997ac19ff91935ab771846615
+cp %{_builddir}/drkonqi-%{version}/src/tests/data/linux-procfs-maps-with-missing-files.license %{buildroot}/usr/share/package-licenses/drkonqi/864bc0eb28c73bd997ac19ff91935ab771846615
+cp %{_builddir}/drkonqi-%{version}/src/tests/data/linux-procfs-maps.so.license %{buildroot}/usr/share/package-licenses/drkonqi/864bc0eb28c73bd997ac19ff91935ab771846615
 pushd clr-build
 %make_install
 popd
@@ -178,7 +180,9 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/drkonqi/0185dcaed81bd3d62abe10263cfa6fe72f69a719
+/usr/share/package-licenses/drkonqi/0b71159e19bef95069e18d17296291916e89b5cd
 /usr/share/package-licenses/drkonqi/2a638514c87c4923c0570c55822620fad56f2a33
+/usr/share/package-licenses/drkonqi/3630f1ffcec0e075bf446b88c7b507b1287b571d
 /usr/share/package-licenses/drkonqi/3c3d7573e137d48253731c975ecf90d74cfa9efe
 /usr/share/package-licenses/drkonqi/6091db0aead0d90182b93d3c0d09ba93d188f907
 /usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
