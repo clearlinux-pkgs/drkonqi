@@ -7,7 +7,7 @@
 #
 Name     : drkonqi
 Version  : 5.27.5
-Release  : 81
+Release  : 82
 URL      : https://download.kde.org/stable/plasma/5.27.5/drkonqi-5.27.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.27.5/drkonqi-5.27.5.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.27.5/drkonqi-5.27.5.tar.xz.sig
@@ -108,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684854593
+export SOURCE_DATE_EPOCH=1685498062
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +141,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684854593
+export SOURCE_DATE_EPOCH=1685498062
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
