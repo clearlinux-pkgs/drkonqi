@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.27.5
-Release  : 82
-URL      : https://download.kde.org/stable/plasma/5.27.5/drkonqi-5.27.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.5/drkonqi-5.27.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.5/drkonqi-5.27.5.tar.xz.sig
+Version  : 5.27.6
+Release  : 83
+URL      : https://download.kde.org/stable/plasma/5.27.6/drkonqi-5.27.6.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.6/drkonqi-5.27.6.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.6/drkonqi-5.27.6.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -100,15 +100,15 @@ services components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.27.5
-cd %{_builddir}/drkonqi-5.27.5
+%setup -q -n drkonqi-5.27.6
+cd %{_builddir}/drkonqi-5.27.6
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685498062
+export SOURCE_DATE_EPOCH=1687290813
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +141,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685498062
+export SOURCE_DATE_EPOCH=1687290813
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
