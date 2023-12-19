@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : drkonqi
-Version  : 5.27.9
-Release  : 87
-URL      : https://download.kde.org/stable/plasma/5.27.9/drkonqi-5.27.9.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.27.9/drkonqi-5.27.9.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.27.9/drkonqi-5.27.9.tar.xz.sig
+Version  : 5.27.10
+Release  : 88
+URL      : https://download.kde.org/stable/plasma/5.27.10/drkonqi-5.27.10.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.10/drkonqi-5.27.10.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.10/drkonqi-5.27.10.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0
@@ -102,15 +102,15 @@ services components for the drkonqi package.
 
 
 %prep
-%setup -q -n drkonqi-5.27.9
-cd %{_builddir}/drkonqi-5.27.9
+%setup -q -n drkonqi-5.27.10
+cd %{_builddir}/drkonqi-5.27.10
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701951912
+export SOURCE_DATE_EPOCH=1703015335
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -169,7 +169,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1701951912
+export SOURCE_DATE_EPOCH=1703015335
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
