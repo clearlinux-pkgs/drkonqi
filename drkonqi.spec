@@ -9,7 +9,7 @@
 #
 Name     : drkonqi
 Version  : 6.0.3
-Release  : 93
+Release  : 94
 URL      : https://download.kde.org/stable/plasma/6.0.3/drkonqi-6.0.3.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.0.3/drkonqi-6.0.3.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.0.3/drkonqi-6.0.3.tar.xz.sig
@@ -116,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1711651392
+export SOURCE_DATE_EPOCH=1711663590
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -177,7 +177,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1711651392
+export SOURCE_DATE_EPOCH=1711663590
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/drkonqi
 cp %{_builddir}/drkonqi-%{version}/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/drkonqi/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e || :
